@@ -1,0 +1,82 @@
+package recursion2;
+
+public class Main {
+ 
+	public static void main(String[] args) {
+		int []arr = new int []{35,42,18,91};
+		System.out.print(no_prime_numbers(a,3));
+
+	}
+	public static int sum(int [] a, int i) {
+		if( i == 0) {
+			return a[0];
+		}
+		return sum(a, i-1) + a[i];
+	}
+public static int positive(int a [], int i) {
+	if(i == 0) {
+		if(a[0]<0) {                   
+			return 0;
+	}
+		else {
+		return 1;
+	}
+	
+	if(a[i]>0) {
+		return positive(a,i-1) + 1;
+
+	}
+	else {
+	return positive(a,i-1);
+	}
+}
+
+
+public static int intNumInArray(int [] a, int num, int count) {
+if(count == 0) {
+	return -1;
+}
+
+if(a[count] == num) {
+	return count;
+}
+
+return intNumInArray(a, num, count-1);
+
+}
+
+public static boolean ascending(int [] a, int count) {
+	if(count == 0) {
+		return true;
+	}
+	if(a[count]>a[count-1]) {
+		return ascending(a,count-1);
+	}
+	else {
+		return false;
+	}
+}
+public static boolean prime(int a, int p) {  
+	if(p == 1 ) {   
+		return true;
+	}
+	if(a%p == 0 && p != a) {            
+		return false;
+	}
+	return prime(a, p-1);         
+	
+}
+
+public static boolean no_prime_numbers(int [] a, int count) {
+	if(count == -1) {          
+		return true;
+	}
+	if(prime(a[count],a[count])) {
+		return false;
+	}
+	else {
+		return no_prime_numbers(a, count-1);
+	}
+}
+
+}
